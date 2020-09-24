@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Rectangle Counter</string>
+    <string name="rows_count">Rows count</string>
+    <string name="columns_count">Columns count</string>
 </resources>
