@@ -1,8 +1,9 @@
-package aze.talmir.qwello.task.rectanglecounter
+package aze.talmir.qwello.task.rectanglecounter.screens
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import aze.talmir.qwello.task.rectanglecounter.ui.main.MainFragment
+import aze.talmir.qwello.task.rectanglecounter.R
+import aze.talmir.qwello.task.rectanglecounter.screens.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
 
