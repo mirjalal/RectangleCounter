@@ -125,7 +125,11 @@ class MainViewModel : ViewModel() {
     }
 
     fun reset() {
-        matrix.clear()
+        matrix.forEach {
+            it.indices.forEach { i ->
+                it[i] = 0
+            }
+        }
         _selectedCounter.value = 0
         _rectCounter.value = 0
     }

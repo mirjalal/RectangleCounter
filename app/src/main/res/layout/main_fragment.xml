@@ -18,8 +18,7 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:orientation="horizontal">
 
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
@@ -37,7 +36,7 @@
                 android:padding="@dimen/sixteen_dp"
                 android:text='@{HtmlCompat.fromHtml(@string/total_rect_counter(totalRectCount), 63)}'
                 android:textSize="20sp"
-                tools:text="Total rectangles: 6" />
+                tools:text="Total rects: 6" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <Button

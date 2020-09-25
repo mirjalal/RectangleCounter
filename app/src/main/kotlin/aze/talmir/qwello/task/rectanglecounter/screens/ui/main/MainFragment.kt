@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.LinearLayoutCompat
+import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import aze.talmir.qwello.task.rectanglecounter.R
@@ -79,6 +80,11 @@ class MainFragment : Fragment() {
             }
 
             reset.setOnClickListener {
+                binding.checkboxHolderRoot.children.forEach { linearLayout ->
+                    (linearLayout as LinearLayoutCompat).children.forEach { checkbox ->
+                        (checkbox as MaterialCheckBox).isChecked = false
+                    }
+                }
                 viewModel.reset()
             }
         }.root
