@@ -9,7 +9,7 @@
     <item android:state_checked="true">
         <layer-list>
             <item>
-                <shape android:shape="oval">
+                <shape android:shape="rectangle">
                     <size android:width="@dimen/twenty_four_dp" android:height="@dimen/twenty_four_dp" />
                     <solid android:color="@color/colorAccent" />
                 </shape>

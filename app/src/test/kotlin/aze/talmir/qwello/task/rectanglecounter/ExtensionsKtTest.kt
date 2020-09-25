@@ -1,6 +1,6 @@
 package aze.talmir.qwello.task.rectanglecounter
 
-import aze.talmir.qwello.task.rectanglecounter.screens.ui.main.MainViewModel
+import aze.talmir.qwello.task.rectanglecounter.utils.getMatrixIndexes
 import aze.talmir.qwello.task.rectanglecounter.utils.isPerfectSquare
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotEquals
@@ -11,7 +11,7 @@ import org.junit.Test
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
-class ExtensionsUnitTest {
+class ExtensionsKtTest {
 
     private fun findEnd(i: Int, j: Int, input: List<MutableList<Int>>, output: MutableList<Any>, index: Int) {
         val x = input.size
@@ -114,4 +114,12 @@ class ExtensionsUnitTest {
     @Test
     fun isPerfectSquare_isCorrect_returnsTrue() =
         assertEquals(true, 49.isPerfectSquare())
+
+    @Test
+    fun getMatrixIndexes_fails() = // should return false positive result
+        assertEquals(12 to 98, "1,298".getMatrixIndexes())
+
+    @Test
+    fun getMatrixIndexes_succeeds() =
+        assertEquals(67 to 43, "67,43".getMatrixIndexes())
 }

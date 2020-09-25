@@ -2,4 +2,7 @@
     <string name="app_name">Rectangle Counter</string>
     <string name="rows_count">Rows count</string>
     <string name="columns_count">Columns count</string>
+    <string name="reset">Start again</string>
+    <string name="total_selected_counter"><![CDATA[<b>Total selected</b>:]]> %d</string>
+    <string name="total_rect_counter"><![CDATA[<b>Total rects</b>:]]> %d</string>
 </resources>

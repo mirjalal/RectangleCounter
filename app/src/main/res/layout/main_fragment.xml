@@ -1,38 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".screens.ui.main.MainFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <Button
-        android:id="@+id/reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <data>
+        <import type="androidx.core.text.HtmlCompat" />
+        <variable name="totalSelected" type="Integer" />
+        <variable name="totalRectCount" type="Integer" />
+    </data>
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textSize="20sp" />
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".screens.ui.main.MainFragment">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/twenty_four_dp">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
 
-        <HorizontalScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/checkbox_holder_root"
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" />
-        </HorizontalScrollView>
-    </androidx.core.widget.NestedScrollView>
-</androidx.appcompat.widget.LinearLayoutCompat>
+                android:layout_gravity="center"
+                android:padding="@dimen/sixteen_dp"
+                android:text='@{HtmlCompat.fromHtml(@string/total_selected_counter(totalSelected), 63)}'
+                android:textSize="20sp"
+                tools:text="Total selected: 6" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/sixteen_dp"
+                android:text='@{HtmlCompat.fromHtml(@string/total_rect_counter(totalRectCount), 63)}'
+                android:textSize="20sp"
+                tools:text="Total rectangles: 6" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reset"
+            android:layout_gravity="end"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/twenty_four_dp">
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/checkbox_holder_root"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </HorizontalScrollView>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

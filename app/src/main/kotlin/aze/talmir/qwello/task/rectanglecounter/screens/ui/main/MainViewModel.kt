@@ -15,10 +15,12 @@ class MainViewModel : ViewModel() {
     private val matrix = mutableListOf<MutableList<Int>>()
 
     // private mutable state flow
-    private val _counter = MutableStateFlow(0)
+    private val _selectedCounter = MutableStateFlow(0)
+    private val _rectCounter = MutableStateFlow(0)
 
     // publicly exposed as read-only state flow
-    val counter: StateFlow<Int> = _counter
+    val selectedCounter: StateFlow<Int> = _selectedCounter
+    val rectCounter: StateFlow<Int> = _rectCounter
 
     fun initMatrix(rowsCount: Int, columnsCount: Int) {
         for (i in 0 until rowsCount) {
@@ -82,20 +84,18 @@ class MainViewModel : ViewModel() {
     }
 
     private fun getRectCount(input: List<MutableList<Int>>): Int {
-        val array = mutableListOf<MutableList<Int>>()
-        array.addAll(input)
-        val sizeOfInput = array.size
+        val sizeOfInput = input.size
 
         val output = mutableListOf<Any>()
         var index = -1
 
         for (i in 0 until sizeOfInput) {
-            for (j in array[i].indices) {
-                if (array[i][j] == 1) {
+            for (j in input[i].indices) {
+                if (input[i][j] == 1) {
                     output.add(listOf(i, j))
-
+                    println(output)
                     index += 1
-                    findEnd(i, j, array, output, index)
+                    findEnd(i, j, input, output, index)
                 }
             }
         }
@@ -110,23 +110,23 @@ class MainViewModel : ViewModel() {
     }
 
     fun addPointTo(rowIndex: Int, colIndex: Int) {
+        _selectedCounter.value += 1
         modifyMatrixAndReCalc(rowIndex, colIndex, 1)
     }
 
     fun removePointFrom(rowIndex: Int, colIndex: Int) {
+        _selectedCounter.value -= 1
         modifyMatrixAndReCalc(rowIndex, colIndex, 0)
     }
 
     private fun modifyMatrixAndReCalc(rowIndex: Int, colIndex: Int, value: Int) {
         matrix[rowIndex][colIndex] = value
-        _counter.value = getRectCount(matrix)
+        _rectCounter.value = getRectCount(matrix)
     }
 
     fun reset() {
-        for (i in matrix.indices)
-            for (j in matrix[i].indices)
-                matrix[i][j] = 0
-
-        _counter.value = getRectCount(matrix)
+        matrix.clear()
+        _selectedCounter.value = 0
+        _rectCounter.value = 0
     }
 }
