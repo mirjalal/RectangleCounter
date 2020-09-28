@@ -5,7 +5,7 @@
 
 ## Screenshots
 
-|         Screenshot1         |         Screenshot2         |         Screenshot2         |         Screenshot2         |
+|         Screenshot1         |         Screenshot2         |         Screenshot3         |         Screenshot4         |
 |:---------------------------:|:---------------------------:|:---------------------------:|:---------------------------:|
 | ![Screenshot1][screenshot1] | ![Screenshot2][screenshot2] | ![Screenshot3][screenshot3] | ![Screenshot4][screenshot4] |
 
