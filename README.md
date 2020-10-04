@@ -1,4 +1,5 @@
 # ![][app_logo] Rectangle Counter
+The home task received from [Qwello GmbH][qwello].
 
 
 ## Made with :heart: in Azerbaijan.
@@ -41,3 +42,5 @@ Due to it has several bugs, they fixed and applied.
 
 [Freepik]: https://www.flaticon.com/authors/freepik
 [Flaticon]: https://www.flaticon.com/free-icon/shapes_601418?term=rectangle%20circle%20shape&page=1&position=1
+
+[qwello]: https://qwello.eu/en
